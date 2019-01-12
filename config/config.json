@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password":"",
+    "password":"testpassword",
     "database": "petfinder_db",
     "host": "localhost",
     "dialect": "mysql"
