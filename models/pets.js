@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Pets = sequelize.define("Pets", {
-    pet_type: DataTypes.STRING,
-    pet_breed: DataTypes.STRING,
-    pet_age: DataTypes.INTEGER,
-    pet_location: DataTypes.STRING,
+    petType: DataTypes.STRING,
+    petBreed: DataTypes.STRING,
+    petAge: DataTypes.INTEGER,
+    petLocation: DataTypes.STRING,
   },
   {
     timestamps: true,
