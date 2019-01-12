@@ -1,9 +1,10 @@
+module.exports= 
 {
   "development": {
-    "username": "root",
-    "password":"testpassword",
-    "database": "petfinder_db",
-    "host": "localhost",
+    "username": process.env.MYSQL_USER,
+    "password": process.env.MYSQL_PW,
+    "database": process.env.MYSQL_DB,
+    "host": process.env.MYSQL_HOST,
     "dialect": "mysql"
   },
   "test": {
@@ -17,5 +18,5 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
-  }
-}
+  } 
+};
