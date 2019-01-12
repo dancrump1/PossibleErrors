@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     petType: DataTypes.STRING,
     petBreed: DataTypes.STRING,
     petAge: DataTypes.INTEGER,
-    petLocation: DataTypes.STRING,
+    petLocation: DataTypes.STRING
   },
   {
     timestamps: true,

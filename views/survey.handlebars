@@ -82,8 +82,9 @@
         <br>
 
         <input type="submit" value="Submit" id="survey-submit">
+
         <script>
-            $("#survey-submit").click(function () {
+            $("#survey-submit").click(function (event) {
                 event.preventDefault()
                 console.log("hi")
 
@@ -98,21 +99,32 @@
                 }
 
                 if (validateForm()) {
-                    var userData = {
-
+                    var userData =
+                    {
                         breed: $("#q1").val(),
                         size: $("#q2").val(),
                         gender: $("#q3").val(),
                         location: $("#q4").val(),
-                        age: $("#q5").val(),
-
+                        age: $("#q5").val()
                     };
+                    console.log(userData);
 
-                    console.log(userData)
+                    $.ajax("/api/examples", {
+                        type: "POST",
+                        data: userData
+                    }).then(
+                        function () {
+                            console.log("User Data was added!");
+                            
+
+                        });
+
+
                 }
-                else{
-                    alert("Please fill out all questions")
+                else {
+                    alert("Please fill out all questions");
                 }
+
             });
 
 
