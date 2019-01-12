@@ -79,6 +79,44 @@
         </select>
 
         <br>
+        <br>
+
+        <input type="submit" value="Submit" id="survey-submit">
+        <script>
+            $("#survey-submit").click(function () {
+                event.preventDefault()
+                console.log("hi")
+
+                function validateForm() {
+                    var isValid = true;
+                    $(".chosen-select").each(function () {
+                        if ($(this).val() === "") {
+                            isValid = false;
+                        }
+                    });
+                    return isValid;
+                }
+
+                if (validateForm()) {
+                    var userData = {
+
+                        breed: $("#q1").val(),
+                        size: $("#q2").val(),
+                        gender: $("#q3").val(),
+                        location: $("#q4").val(),
+                        age: $("#q5").val(),
+
+                    };
+
+                    console.log(userData)
+                }
+                else{
+                    alert("Please fill out all questions")
+                }
+            });
+
+
+        </script>
 
 
 </body>
