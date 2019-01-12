@@ -5,13 +5,6 @@ module.exports=
     "password": process.env.MYSQL_PW,
     "database": process.env.MYSQL_DB,
     "host": process.env.MYSQL_HOST,
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
     "dialect": "mysql",
     "logging": false
   },

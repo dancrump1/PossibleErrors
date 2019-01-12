@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Pets.findAll({}).then(function(dbExamples) {
       res.render("survey", {
-        msg: "Welcome!",
+        msg: "Dog Finder App!",
         examples: dbExamples
       });
     });
