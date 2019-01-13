@@ -83,7 +83,43 @@
 
         <input type="submit" value="Submit" id="survey-submit">
 
+
+        <h2>Submitted Surveys</h2>
+        <ul>
+            {{#each surveys}}
+            <li>
+                <h5>Survey Number: {{this.id}}</h5>
+                <p>Breed: {{this.breed}}</p>
+                <p>Size: {{this.size}}</p>
+                <p>Gender: {{this.gender}}</p>
+                <p>Location: {{this.location}}</p>
+                <p>Age: {{this.age}}</p>
+                <p>Time of Survey: {{this.createdAt}}</p>
+                <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
+            </li>
+            {{/each}}
+        </ul>
+
         <script>
+            $(".delete-survey").click(function (event){
+                event.preventDefault();
+                console.log("you clicked the delete button");
+                var id = $(this).data("id");
+                var deleteId = {id:id};
+
+                $.ajax("/api/examples",{
+                    type: "DELETE",
+                    data: deleteId
+                }).then(()=>
+                {
+                    console.log("You deleted survey with ID: " + deleteId);
+                    location.reload();
+                })
+            });
+
+
+
+
             $("#survey-submit").click(function (event) {
                 event.preventDefault()
                 console.log("hi")
@@ -115,7 +151,7 @@
                     }).then(
                         function () {
                             console.log("User Data was added!");
-                            
+                            location.reload(); //reloads page to clear out survey fields
 
                         });
 
