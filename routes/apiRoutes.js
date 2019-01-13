@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/examples", function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     db.Survey.create(req.body).then(function(survey) {
       res.json(survey);
     });
