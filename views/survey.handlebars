@@ -57,8 +57,8 @@
         <h4>Would you like a Male or Female Dog?</h4>
         <select data-placeholder="" class="chosen-select" id="q3">
             <option value=""></option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
         </select>
 
         <h3><strong>Question 4</strong></h3>
@@ -101,17 +101,16 @@
         </ul>
 
         <script>
-            $(".delete-survey").click(function (event){
+            $(".delete-survey").click(function (event) {
                 event.preventDefault();
                 console.log("you clicked the delete button");
                 var id = $(this).data("id");
-                var deleteId = {id:id};
+                var deleteId = { id: id };
 
-                $.ajax("/api/examples",{
+                $.ajax("/api/examples", {
                     type: "DELETE",
                     data: deleteId
-                }).then(()=>
-                {
+                }).then(() => {
                     console.log("You deleted survey with ID: " + deleteId);
                     location.reload();
                 })
@@ -143,7 +142,17 @@
                         location: $("#q4").val(),
                         age: $("#q5").val()
                     };
-                    console.log(userData);
+
+                    apiQuery = "http://api.petfinder.com/pet.find?";
+                    apiKey = "key=c52dc8a371569b0c38590a22793f487b";
+                    breed = "&breed=" + userData.breed;
+                    size = "&size=" + userData.size;
+                    gender = "&gender=" + userData.gender
+                    region = "&location=" + userData.location;
+                    age = "&age=" + userData.age;
+                    format = "&format=json&callback=?";
+                    apiURL = apiQuery + apiKey + breed + size + gender + region + age + format;
+                    console.log(apiURL);
 
                     $.ajax("/api/examples", {
                         type: "POST",
@@ -151,22 +160,26 @@
                     }).then(
                         function () {
                             console.log("User Data was added!");
-                            location.reload(); //reloads page to clear out survey fields
+                            //location.reload(); //reloads page to clear out survey fields
 
                         });
 
-
+                    $.ajax({
+                        url: apiURL,
+                        dataType: "jsonp",
+                        method: "GET"
+                    }).then(function (response) {
+                        console.log(response);
+                        petFinderData = response.petfinder.pets.pet[0];
+                       console.log(petFinderData);
+                    });
                 }
                 else {
                     alert("Please fill out all questions");
                 }
-
             });
-
 
         </script>
 
-
 </body>
-
 </html>
