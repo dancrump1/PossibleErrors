@@ -106,32 +106,11 @@
                 console.log("you clicked the delete button");
                 var id = $(this).data("id");
                 var deleteId = { id: id };
-
-                $.ajax("/api/examples", {
-                    type: "DELETE",
-                    data: deleteId
-                }).then(() => {
-                    console.log("You deleted survey with ID: " + deleteId);
-                    location.reload();
-                })
+                deleteButton(deleteId);
             });
 
-
-
-
             $("#survey-submit").click(function (event) {
-                event.preventDefault()
-                console.log("hi")
-
-                function validateForm() {
-                    var isValid = true;
-                    $(".chosen-select").each(function () {
-                        if ($(this).val() === "") {
-                            isValid = false;
-                        }
-                    });
-                    return isValid;
-                }
+                event.preventDefault();
 
                 if (validateForm()) {
                     var userData =
@@ -154,32 +133,62 @@
                     apiURL = apiQuery + apiKey + breed + size + gender + region + age + format;
                     console.log(apiURL);
 
-                    $.ajax("/api/examples", {
-                        type: "POST",
-                        data: userData
-                    }).then(
-                        function () {
-                            console.log("User Data was added!");
-                            //location.reload(); //reloads page to clear out survey fields
-
-                        });
-
-                    $.ajax({
-                        url: apiURL,
-                        dataType: "jsonp",
-                        method: "GET"
-                    }).then(function (response) {
-                        console.log(response);
-                        petFinderData = response.petfinder.pets.pet[0];
-                       console.log(petFinderData);
-                    });
+                    petSurveyPost(userData);
+                    petFinderCall(apiURL);
                 }
                 else {
                     alert("Please fill out all questions");
                 }
             });
 
+
+
+            //-------------------------Helper Functions----------------------------//
+
+            var validateForm = () => {
+                var isValid = true;
+                $(".chosen-select").each(function () {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+
+            var petFinderCall = (apiURL) => {
+                $.ajax({
+                    url: apiURL,
+                    dataType: "jsonp",
+                    method: "GET"
+                }).then(function (response) {
+                    petFinderData = response.petfinder.pets.pet[0];
+                    console.log(petFinderData);
+                });
+            }
+
+            var petSurveyPost = (userData) => {
+                $.ajax("/api/examples", {
+                    type: "POST",
+                    data: userData
+                }).then(
+                    function () {
+                        console.log("User Data was added!");
+                        //location.reload(); //reloads page to clear out survey fields
+                    });
+            }
+
+            var deleteButton = (deleteId) => {
+                $.ajax("/api/examples", {
+                    type: "DELETE",
+                    data: deleteId
+                }).then(() => {
+                    console.log("You deleted survey with ID: " + deleteId);
+                    location.reload();
+                });
+            }
+
         </script>
 
 </body>
+
 </html>
