@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   app.get("/survey", function(req, res) {
     db.Survey.findAll({}).then(function(surveys) {
-      console.log("HELLO WORLD")
+      console.log("HELLO WORLD");
       res.render("survey", {
         msg: "Dog Finder App!",
         surveys: surveys
