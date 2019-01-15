@@ -162,6 +162,7 @@
                     dataType: "jsonp",
                     method: "GET"
                 }).then(function (response) {
+
                     petFinderData = response.petfinder.pets.pet;
                     showPetData(petFinderData);
                 });
