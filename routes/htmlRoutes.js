@@ -2,8 +2,13 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
+app.get("/",(req,res)=>{
+  res.render("index");
+});
+
+  app.get("/survey", function(req, res) {
     db.Survey.findAll({}).then(function(surveys) {
+      console.log("HELLO WORLD")
       res.render("survey", {
         msg: "Dog Finder App!",
         surveys: surveys
