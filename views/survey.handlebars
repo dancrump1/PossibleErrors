@@ -95,7 +95,7 @@
                 <p>Location: {{this.location}}</p>
                 <p>Age: {{this.age}}</p>
                 <p>Time of Survey: {{this.createdAt}}</p>
-                <div id="pet-container"></div>
+                <div id="pet-container">hi</div>
                 <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
             </li>
             {{/each}}
@@ -162,37 +162,9 @@
                     dataType: "jsonp",
                     method: "GET"
                 }).then(function (response) {
-                    //Data received from ajax call containing pet info
+
                     petFinderData = response.petfinder.pets.pet;
-
-                    //Card created for single animal.
-                    //Can be wrapped in a for loop using the data-val attribute as the counter variable
-                    let petList = [];
-
-                    for (let i = 0; i < petFinderData.length; i++) {
-                        let newPet = {
-                            petName: petFinderData[i].name.$t,
-                            petPhoto: petFinderData[i].media.photos.photo[0].$t,
-                            petBreed: petFinderData[i].breeds.breed.$t
-                        }
-
-                        petList.push(newPet);
-                    };
-                    console.log(petList);
-
-                    for (let i = 0; i < petList.length; i++) {
-
-                        //Creating each container for each pet card
-                        $("#pet-container").html(`<div class='card'>
-                        <div class="card-body text-center">
-                        <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
-                        <div class="card-details">
-                        <img src=${JSON.stringify(petList[i].petPhoto)}>
-                        <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
-                        <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
-                        </div>
-                        </div>`);
-                    };
+                    showPetData(petFinderData);
                 });
             }
 
@@ -200,11 +172,10 @@
                 $.ajax("/api/examples", {
                     type: "POST",
                     data: userData
-                }).then(
-                    function () {
-                        console.log("User Data was added!");
-                        //location.reload(); //reloads page to clear out survey fields
-                    });
+                }).then(() => {
+                    console.log("User Data was added!");
+                    //location.reload(); //reloads page to clear out survey fields
+                });
             }
 
             var deleteButton = (deleteId) => {
@@ -216,6 +187,44 @@
                     location.reload();
                 });
             }
+
+
+            var showPetData = (petFinderData) => {
+                let petList = [];
+
+
+                for (let i = 0; i < petFinderData.length; i++) {
+                    if (Array.isArray(petFinderData[i].breeds.breed)) {
+                        breed = petFinderData[i].breeds.breed[0].$t;
+                    }
+                    else {
+                        breed = petFinderData[i].breeds.breed.$t;
+                    }
+                    let newPet = {
+                        petName: petFinderData[i].name.$t,
+                        petPhoto: petFinderData[i].media.photos.photo[0].$t,
+                        petBreed: breed
+                    }
+
+                    petList.push(newPet);
+                };
+                console.log(petList);
+
+                for (let i = 0; i < petList.length; i++) {
+
+                    //Creating each container for each pet card
+                    $("#pet-container").append(`<div class='card'>
+                        <div class="card-body text-center">
+                        <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
+                        <div class="card-details">
+                        <img src=${JSON.stringify(petList[i].petPhoto)}>
+                        <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
+                        <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
+                        </div>
+                        </div>`);
+                };
+            }
+
 
         </script>
 
