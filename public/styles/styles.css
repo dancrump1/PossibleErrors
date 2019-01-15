@@ -30,7 +30,7 @@ background-color:white;
   width:100%;
   height:auto;
   color:white;
-  background-color:#3F3F3F;
+  background-color:#004C81;
   text-align:center;
   
 }
@@ -48,28 +48,85 @@ h3 {
 .grid-container-top {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  background-color: #2196F3;
   padding: 10px;
 }
 
 .grid-container-second-row {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+  
+  grid-template-columns: auto 10% 10% auto;
+  /* padding: 10px; */
 }
 
 .grid-container-third-row {
   display: grid;
+  height:300px;
   grid-template-columns: auto;
-  background-color: #2196F3;
   padding: 10px;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-size: 30px;
   text-align: center;
+}
+
+#empty{
+  width:0px;
+  height:0px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+
+/* Paw Shapes */
+
+#bigpad {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  margin: 20px 0px 20px 0px;
+  color:white;
+  background:black;
+  border-radius: 50% / 10%;
+  text-align: center;
+  text-indent: .1em;
+}
+#bigpad:before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  right: -5%;
+  left: -5%;
+  background: inherit;
+  border-radius: 5% / 50%;
+}
+
+
+#smallpaw {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 180px;
+  background-color:black;
+  border-radius: 50% 70% 50% 50% / 60% 70% 40% 40%;
+}
+
+#smallpawthree{
+  position:relative;
+  right:0px;
+  display: block;
+ 
+  width: 126px;
+  height: 180px;
+  background-color:black;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
