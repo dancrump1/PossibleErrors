@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  background-color:white;
+  background-color:#004C81;
   height:auto;
   border-bottom:solid 4px #004C81;
   margin:0px 0px 20px 0px;
@@ -12,21 +12,84 @@
   
 }
 
+#fetPinder{
+  font-family: 'Fredoka One', cursive;
+  color:white;
+}
+
+#navDescription{
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+}
+
+#paw{
+ justify-content:left;
+}
+
 body {
-  background-color: #eeeeee;
+  background-color: white;
 }
 
-.container {
-  background-color: #eeeeee;
+.pawBackground img{
+  margin:0 auto;
+width: 90%;
 }
 
-#nav-container {
-background-color:white;
+.pawBackground{
+position: relative;
+margin: 0 auto;
+width:80%;
 }
+
+#paw1{
+  position: absolute;
+  top:27%;
+  right: 70;
+  /* border:1px solid blueviolet; */
+  width: 185px;
+  height: 200px;
+}
+
+#paw2{
+  position: absolute;
+  top:10%;
+  right: 52%;
+  /* border:1px solid blueviolet; */
+  width: 220px;
+  height: 200px;
+}
+
+#paw3{
+  position: absolute;
+  top:16%;
+  right: 27%;
+  /* border:1px solid blueviolet; */
+  width: 200px;
+  height: 200px;
+}
+
+#paw4{
+  position: absolute;
+  top:42%;
+  right: 11%;
+  /* border:1px solid blueviolet; */
+  width: 190px;
+  height: 180px;
+}
+
+#paw5{
+  position: absolute;
+  top:55%;
+  right: 35%;
+  /* border:1px solid blueviolet; */
+  width: 430px;
+  height: 260px;
+}
+
 
 .navbar-fixed-footer{
   position:fixed;
-  bottom:0px;
+  bottom:0;
   width:100%;
   height:auto;
   color:white;

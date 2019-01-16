@@ -13,37 +13,38 @@
 </head>
 
 <body>
-    <div class="navbar fixed">
-        <div class="container" id="nav-container">
-            <h1>Welcome to FetPinder</h1>
+    <div class="navbar">
+        <div class="container">
+            <h1 id="fetPinder">FetPinder</h1>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="/assets/pawprint.png" id="paw"></a>
         </div>
     </div>
 
     <div class="container">
 
+        <div class="pawBackground">
+            <div id="paw1"></div>
+            <div id="paw2"></div>
+            <div id="paw3"></div>
+            <div id="paw4"></div>
+            <div id="paw5"></div>
+            <img src="/assets/pawprint.svg">
 
-        <div class="grid-container-top">
-            <div class="grid-item-empty"></div>
-            <div class="grid-item" id="smallpaw">Paw 2</div>
-            <div class="grid-item" id="smallpawthree">Paw 3</div>
-            <div class="grid-item-empty"></div>
         </div>
 
-        <div class="grid-container-second-row">
-            <div class="grid-item" id="smallpaw">Paw 1</div>
-            <div class="grid-item" id="empty"></div>
-            <div class="grid-item" id="empty"></div>
-            <div class="grid-item" id="smallpaw">Paw 4</div>
-        </div>
 
-        <div class="grid-container-third-row center">
-          <div class="grid-item" id="bigpad">Big ol' paw</div>
-        </div>
     </div>
+
+    <script>
+        $("#paw5").click(function(){
+            window.location = "/survey";
+        });
+    </script>
 </body>
 
 <div class="navbar-fixed-footer">
-    <h3 id="footer-header">Copyright: FetPinder</h3>
+    <h3 id="footer-header"><span id="fetPinder">© 2019 FetPinder</span></h3>
 </div>
 
 
