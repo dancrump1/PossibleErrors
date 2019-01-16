@@ -82,6 +82,9 @@
         <br>
 
         <input type="submit" value="Submit" id="survey-submit">
+        <br><br>
+
+        <div id="pet-container"></div>
 
 
         <h2>Submitted Surveys</h2>
@@ -95,7 +98,6 @@
                 <p>Location: {{this.location}}</p>
                 <p>Age: {{this.age}}</p>
                 <p>Time of Survey: {{this.createdAt}}</p>
-                <div id="pet-container">hi</div>
                 <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
             </li>
             {{/each}}
@@ -199,10 +201,16 @@
                     }
                     else {
                         breed = petFinderData[i].breeds.breed.$t;
+                    };
+                    if (Array.isArray(petFinderData[i].media.photos.photo)) {
+                        photo = petFinderData[i].media.photos.photo[2].$t;
+                    }
+                    else {
+                        photo = petFinderData[i].media.photos.photo[0].$t;
                     }
                     let newPet = {
                         petName: petFinderData[i].name.$t,
-                        petPhoto: petFinderData[i].media.photos.photo[0].$t,
+                        petPhoto: photo,
                         petBreed: breed
                     }
 
