@@ -193,7 +193,7 @@
 
             var showPetData = (petFinderData) => {
                 let petList = [];
-
+                console.log(petFinderData);
 
                 for (let i = 0; i < petFinderData.length; i++) {
                     if (Array.isArray(petFinderData[i].breeds.breed)) {
@@ -202,12 +202,15 @@
                     else {
                         breed = petFinderData[i].breeds.breed.$t;
                     };
-                    if (Array.isArray(petFinderData[i].media.photos.photo)) {
+                    //console.log(breed);
+                    if (petFinderData[i].media.photos && Array.isArray(petFinderData[i].media.photos.photo)) {
                         photo = petFinderData[i].media.photos.photo[2].$t;
                     }
                     else {
-                        photo = petFinderData[i].media.photos.photo[0].$t;
-                    }
+                       photo = "";
+                    };
+                    console.log(i);
+                    console.log(photo);
                     let newPet = {
                         petName: petFinderData[i].name.$t,
                         petPhoto: photo,
@@ -225,7 +228,7 @@
                         <div class="card-body text-center">
                         <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
                         <div class="card-details">
-                        <img src=${JSON.stringify(petList[i].petPhoto)}>
+                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided">
                         <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
                         <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
                         </div>
