@@ -232,7 +232,9 @@
                         <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
                         <div class="card-details">
                         <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided">
+                        <div class="breed-details">
                         <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
+                        </div>
                         <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
                         </div>
                         </div>`);

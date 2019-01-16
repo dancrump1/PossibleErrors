@@ -229,7 +229,9 @@ h3 {
   padding: 20px; 
   color: #000000;  
   border-style: dotted;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
   text-shadow: 1px 1px rgb(255, 255, 255);
+  border-width: thick;
+}
+.breed-details{
+  margin-top: 15px;
 }
