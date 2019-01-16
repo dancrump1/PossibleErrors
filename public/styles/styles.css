@@ -8,7 +8,7 @@
 }
 
 .navbar {
-  background-color:white;
+  background-color:#004C81;
   height:auto;
   border-bottom:solid 4px #004C81;
   margin:0px 0px 20px 0px;
@@ -17,22 +17,89 @@
   
 }
 
+#fetPinder{
+  font-family: 'Fredoka One', cursive;
+  color:white;
+}
+
+#navDescription{
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+}
+
+#paw{
+ justify-content:left;
+}
+
 body {
+<<<<<<< HEAD
   background-color: #eeeeee;
   font-family: PuppyBellies;
+=======
+  background-color: white;
+>>>>>>> 0ecf582c81ed4ea0386d1f180e3179e69d84f8a5
 }
 
-.container {
-  background-color: #eeeeee;
+.pawBackground img{
+  margin:0 auto;
+width: 90%;
 }
 
-#nav-container {
-background-color:white;
+.pawBackground{
+position: relative;
+margin: 0 auto;
+width:80%;
 }
+
+#paw1{
+  position: absolute;
+  top:27%;
+  right: 70;
+  /* border:1px solid blueviolet; */
+  width: 185px;
+  height: 200px;
+}
+
+#paw2{
+  position: absolute;
+  top:10%;
+  right: 52%;
+  /* border:1px solid blueviolet; */
+  width: 220px;
+  height: 200px;
+}
+
+#paw3{
+  position: absolute;
+  top:16%;
+  right: 27%;
+  /* border:1px solid blueviolet; */
+  width: 200px;
+  height: 200px;
+}
+
+#paw4{
+  position: absolute;
+  top:42%;
+  right: 11%;
+  /* border:1px solid blueviolet; */
+  width: 190px;
+  height: 180px;
+}
+
+#paw5{
+  position: absolute;
+  top:55%;
+  right: 35%;
+  /* border:1px solid blueviolet; */
+  width: 430px;
+  height: 260px;
+}
+
 
 .navbar-fixed-footer{
   position:fixed;
-  bottom:0px;
+  bottom:0;
   width:100%;
   height:auto;
   color:white;
@@ -137,6 +204,7 @@ h3 {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
+<<<<<<< HEAD
 .survey-question-one{
   text-decoration-color: black;
 }
@@ -155,4 +223,15 @@ h3 {
 
 .survey-question-five{
   color:black
+=======
+.petcard{
+  border-radius: 25px;
+  background-image: url("bluepaws.gif");
+  padding: 20px; 
+  color: #000000;  
+  border-style: dotted;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px rgb(255, 255, 255);
+>>>>>>> 0ecf582c81ed4ea0386d1f180e3179e69d84f8a5
 }

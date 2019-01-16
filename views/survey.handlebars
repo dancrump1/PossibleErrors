@@ -85,6 +85,9 @@
         <br>
 
         <input type="submit" value="Submit" id="survey-submit">
+        <br><br>
+
+        <div id="pet-container"></div>
 
 
         <h2>Submitted Surveys</h2>
@@ -98,7 +101,6 @@
                 <p>Location: {{this.location}}</p>
                 <p>Age: {{this.age}}</p>
                 <p>Time of Survey: {{this.createdAt}}</p>
-                <div id="pet-container">hi</div>
                 <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
             </li>
             {{/each}}
@@ -194,7 +196,7 @@
 
             var showPetData = (petFinderData) => {
                 let petList = [];
-
+                console.log(petFinderData);
 
                 for (let i = 0; i < petFinderData.length; i++) {
                     if (Array.isArray(petFinderData[i].breeds.breed)) {
@@ -202,10 +204,19 @@
                     }
                     else {
                         breed = petFinderData[i].breeds.breed.$t;
+                    };
+                    //console.log(breed);
+                    if (petFinderData[i].media.photos && Array.isArray(petFinderData[i].media.photos.photo)) {
+                        photo = petFinderData[i].media.photos.photo[2].$t;
                     }
+                    else {
+                       photo = "";
+                    };
+                    console.log(i);
+                    console.log(photo);
                     let newPet = {
                         petName: petFinderData[i].name.$t,
-                        petPhoto: petFinderData[i].media.photos.photo[0].$t,
+                        petPhoto: photo,
                         petBreed: breed
                     }
 
@@ -216,11 +227,11 @@
                 for (let i = 0; i < petList.length; i++) {
 
                     //Creating each container for each pet card
-                    $("#pet-container").append(`<div class='card'>
+                    $("#pet-container").append(`<div class='petcard'>
                         <div class="card-body text-center">
                         <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
                         <div class="card-details">
-                        <img src=${JSON.stringify(petList[i].petPhoto)}>
+                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided">
                         <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
                         <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
                         </div>
