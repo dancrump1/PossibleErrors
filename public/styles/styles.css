@@ -130,3 +130,14 @@ h3 {
   background-color:black;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
+
+.petcard{
+  border-radius: 25px;
+  background-image: url("bluepaws.gif");
+  padding: 20px; 
+  color: #000000;  
+  border-style: dotted;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px rgb(255, 255, 255);
+}
