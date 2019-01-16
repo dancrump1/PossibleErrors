@@ -32,12 +32,9 @@
 }
 
 body {
-<<<<<<< HEAD
   background-color: #eeeeee;
   font-family: PuppyBellies;
-=======
   background-color: white;
->>>>>>> 0ecf582c81ed4ea0386d1f180e3179e69d84f8a5
 }
 
 .pawBackground img{
@@ -204,8 +201,11 @@ h3 {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
+.text{
+  color:black;
+}
 .survey-question-one{
-  text-decoration-color: black;
+  color: black;
 }
 
 .survey-question-two{
@@ -222,7 +222,11 @@ h3 {
 
 .survey-question-five{
   color:black
+<<<<<<< HEAD
+
+=======
 }
+>>>>>>> 15eb807fc9fad95f15d6b5ab2ebb2503bdd40e2f
 .petcard{
   border-radius: 25px;
   background-image: url("bluepaws.gif");
@@ -230,8 +234,11 @@ h3 {
   color: #000000;  
   border-style: dotted;
   text-shadow: 1px 1px rgb(255, 255, 255);
+<<<<<<< HEAD
+=======
   border-width: thick;
 }
 .breed-details{
   margin-top: 15px;
+>>>>>>> 15eb807fc9fad95f15d6b5ab2ebb2503bdd40e2f
 }
