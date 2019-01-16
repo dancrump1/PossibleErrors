@@ -1,3 +1,8 @@
+@font-face{
+  font-family: PuppyBellies;
+  src: url('PuppyBellies.ttf');
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -14,6 +19,7 @@
 
 body {
   background-color: #eeeeee;
+  font-family: PuppyBellies;
 }
 
 .container {
@@ -129,4 +135,24 @@ h3 {
   height: 180px;
   background-color:black;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.survey-question-one{
+  text-decoration-color: black;
+}
+
+.survey-question-two{
+  color:black
+}
+
+.survey-question-three{
+  color:black
+}
+
+.survey-question-four{
+  color: black
+}
+
+.survey-question-five{
+  color:black
 }
