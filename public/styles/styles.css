@@ -222,14 +222,23 @@ h3 {
 
 .survey-question-five{
   color:black
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 15eb807fc9fad95f15d6b5ab2ebb2503bdd40e2f
 .petcard{
   border-radius: 25px;
   background-image: url("bluepaws.gif");
   padding: 20px; 
   color: #000000;  
   border-style: dotted;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
   text-shadow: 1px 1px rgb(255, 255, 255);
+<<<<<<< HEAD
+=======
+  border-width: thick;
+}
+.breed-details{
+  margin-top: 15px;
+>>>>>>> 15eb807fc9fad95f15d6b5ab2ebb2503bdd40e2f
 }
