@@ -204,7 +204,6 @@ h3 {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
-<<<<<<< HEAD
 .survey-question-one{
   text-decoration-color: black;
 }
@@ -223,7 +222,7 @@ h3 {
 
 .survey-question-five{
   color:black
-=======
+}
 .petcard{
   border-radius: 25px;
   background-image: url("bluepaws.gif");
@@ -233,5 +232,4 @@ h3 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   text-shadow: 1px 1px rgb(255, 255, 255);
->>>>>>> 0ecf582c81ed4ea0386d1f180e3179e69d84f8a5
 }
