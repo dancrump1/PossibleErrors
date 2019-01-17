@@ -231,7 +231,40 @@ h3 {
   border-style: dotted;
   text-shadow: 1px 1px rgb(255, 255, 255);
   border-width: thick;
+  width: 400px;
 }
 .breed-details{
   margin-top: 15px;
+}
+
+#pet-container{
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.survey-container{
+  padding: 20px;
+border: 30px;
+border-style: ridge;
+/* border-image: url("pawprint.png"); */
+}
+
+.question-container{
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr
+}
+
+.previous-surveys{
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr
+}
+
+.submit-container{
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  width: 60%;
+  height: 90px;
+  margin-left: 20%;
+  background-color: aqua;
 }
