@@ -11,7 +11,7 @@
   background-color:#004C81;
   height:auto;
   border-bottom:solid 4px #004C81;
-  margin:0px 0px 20px 0px;
+  margin:0px 0px 0px 0px;
   padding:10px 0px 0px 0px;
   width:100%;
   
@@ -32,9 +32,11 @@
 }
 
 body {
+  position: relative;
   background-color: #eeeeee;
   font-family: PuppyBellies;
   background-color: white;
+  height:100%;
 }
 
 .pawBackground img{
@@ -48,13 +50,33 @@ margin: 0 auto;
 width:80%;
 }
 
+#pawPrintImage{
+  /* max-width:800px; */
+  margin: 0px 0px 20px 0px;
+}
+
+.pawText{
+  color:white;
+  text-align:center;
+}
+
+.pawTextDiv{
+  position:relative;
+}
+
 #paw1{
   position: absolute;
-  top:27%;
+  top:29%;
   right: 70;
   /* border:1px solid blueviolet; */
-  width: 185px;
-  height: 200px;
+  width: 22%;
+  height: 20%;
+}
+
+#paw1TextPosition{
+  position:absolute;
+  top: 35%;
+  left:25%;
 }
 
 #paw2{
@@ -62,8 +84,14 @@ width:80%;
   top:10%;
   right: 52%;
   /* border:1px solid blueviolet; */
-  width: 220px;
-  height: 200px;
+  width: 25%;
+  height: 25%;
+}
+
+#paw2TextPosition{
+  position:absolute;
+  top: 30%;
+  left:0%;
 }
 
 #paw3{
@@ -71,8 +99,14 @@ width:80%;
   top:16%;
   right: 27%;
   /* border:1px solid blueviolet; */
-  width: 200px;
-  height: 200px;
+  width: 22%;
+  height: 25%;
+}
+
+#paw3TextPosition{
+  position:absolute;
+  top: 30%;
+  left:0%;
 }
 
 #paw4{
@@ -80,22 +114,34 @@ width:80%;
   top:42%;
   right: 11%;
   /* border:1px solid blueviolet; */
-  width: 190px;
-  height: 180px;
+  width: 22%;
+  height: 20%;
+}
+
+#paw4TextPosition{
+  position:absolute;
+  top: 25%;
+  left:0%;
 }
 
 #paw5{
   position: absolute;
-  top:55%;
+  top:50%;
   right: 35%;
   /* border:1px solid blueviolet; */
-  width: 430px;
-  height: 260px;
+  width: 44%;
+  height: 38%;
 }
 
+#paw5TextPosition{
+  position:absolute;
+  top: 23%;
+  left:0%;
+  right:3%;
+}
 
 .navbar-fixed-footer{
-  position:fixed;
+  position:absolute;
   bottom:0;
   width:100%;
   height:auto;
