@@ -17,35 +17,59 @@
         <div class="container">
             <h1 id="fetPinder">FetPinder</h1>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-            <img src="/assets/pawprint.png" id="paw"></a>
+                <img src="/assets/pawprint.png" id="paw"></a>
         </div>
     </div>
 
     <div class="container">
 
         <div class="pawBackground">
-            <div id="paw1"></div>
-            <div id="paw2"></div>
-            <div id="paw3"></div>
-            <div id="paw4"></div>
-            <div id="paw5"></div>
-            <img src="/assets/pawprint.svg">
+            <div id="paw1">
+                <div class="pawTextDiv" id="paw1TextPosition">
+                    <h1 class="pawText" style="font-size:3vw;">Sign In</h1>
+                </div>
+            </div>
+            <div id="paw2">
+                <div class="pawTextDiv" id="paw2TextPosition">
+                    <h1 class="pawText" style="font-size:3vw;">Search All Pets</h1>
+                </div>
+            </div>
+            <div id="paw3">
+                <div class="pawTextDiv" id="paw3TextPosition">
+                    <h1 class="pawText" style="font-size:3vw;">Display All Pets</h1>
+                </div>
+            </div>
+            <div id="paw4">
+                <div class="pawTextDiv" id="paw4TextPosition">
+                    <h1 class="pawText" style="font-size:3vw;">Search History</h1>
+                </div>
+            </div>
+            <div id="paw5">
+                <div class="pawTextDiv" id="paw5TextPosition">
+                    <h1 class="pawText" style="font-size:6vw;">Find Your Dog!</h1>
+                </div>
+            </div>
+            <div id="pawPrintImage">
+                <img src="/assets/pawprint.svg">
+            </div>
 
         </div>
 
 
     </div>
 
+    <div class="navbar-fixed-footer">
+        <h3 id="footer-header"><span id="fetPinder">© 2019 FetPinder</span></h3>
+    </div>
+
     <script>
-        $("#paw5").click(function(){
+        $("#paw5").click(function () {
             window.location = "/survey";
         });
     </script>
 </body>
 
-<div class="navbar-fixed-footer">
-    <h3 id="footer-header"><span id="fetPinder">© 2019 FetPinder</span></h3>
-</div>
+
 
 
 
