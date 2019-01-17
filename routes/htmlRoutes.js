@@ -10,7 +10,7 @@ module.exports = function(app) {
     db.Survey.findAll({}).then(function(surveys) {
       console.log("HELLO WORLD");
       res.render("survey", {
-        msg: "Dog Finder App!",
+        msg: "FetPinder",
         surveys: surveys
       });
     });

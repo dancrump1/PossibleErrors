@@ -12,10 +12,11 @@
 
 
 
-    <div class="container">
+    <div class="survey-container">
         <h1>{{msg}}</h1>
         <h2>Survey Questions</h2>
         <hr>
+        <div class="question-container">
     <div class="survey-question-one">   
         <h3 class = "text"><strong>Question 1</strong></h3>
         <h4>What kind of breed are you interested</h4>
@@ -82,17 +83,23 @@
             <option value="Senior">Senior</option>
         </select>
         </div>
+        </div>
+        </div>
         <br>
         <br>
-
-        <input type="submit" value="Submit" id="survey-submit">
+        <div class="submit-container">
+            <div></div>
+        <input type="submit" value="Submit" id="survey-submit" style="height: 60px;">
+        </div>
         <br><br>
 
         <div id="pet-container"></div>
 
 
         <h2>Submitted Surveys</h2>
+        
         <ul>
+            <div class="previous-surveys">
             {{#each surveys}}
             <li>
                 <h5>Survey Number: {{this.id}}</h5>
@@ -105,7 +112,9 @@
                 <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
             </li>
             {{/each}}
+            </div>
         </ul>
+        
 
         <script>
             $(".delete-survey").click(function (event) {
@@ -232,7 +241,7 @@
                         <div class="card-body text-center">
                         <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
                         <div class="card-details">
-                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided">
+                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided" style= "height: 160px">
                         <div class="breed-details">
                         <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
                         </div>
