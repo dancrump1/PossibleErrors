@@ -102,14 +102,16 @@
         <div class="previous-surveys">
             {{#each surveys}}
             <li>
-                <h5 >Survey Number: {{this.id}}</h5>
-                <p >Breed: <span id="{{this.id}}-breed">{{this.breed}}</span></p>
-                <p >Size: {{this.size}}</p>
-                <p >Gender: {{this.gender}}</p>
-                <p >Location: {{this.location}}</p>
-                <p >Age: {{this.age}}</p>
+                <h5>Survey Number: {{this.id}}</h5>
+                <p>Breed: <span id="{{this.id}}-breed">{{this.breed}}</span></p>
+                <p>Size: {{this.size}}</p>
+                <p>Gender: {{this.gender}}</p>
+                <p>Location: {{this.location}}</p>
+                <p>Age: {{this.age}}</p>
                 <p>Time of Survey: {{this.createdAt}}</p>
-                <input type="submit" placeholder="ReSubmit" class="re-submit" data-id="{{this.id}}" data-id="{{this.id}}" data-breed="{{this.breed}}" data-age="{{this.age}}" data-location="{{this.location}}" data-gender="{{this.gender}}" data-size="{{this.size}}">
+                <input type="submit" placeholder="ReSubmit" class="re-submit" data-id="{{this.id}}" data-id="{{this.id}}"
+                    data-breed="{{this.breed}}" data-age="{{this.age}}" data-location="{{this.location}}" data-gender="{{this.gender}}"
+                    data-size="{{this.size}}">
                 <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
             </li>
             {{/each}}
@@ -128,37 +130,28 @@
 
         $(".re-submit").click(function (event) {
             event.preventDefault();
-            let resubmitID= event.target.dataset.submit;
+            let resubmitID = event.target.dataset.submit;
             //let resubmitID = $(this).data("submit")
             let resubmitForm = {
                 //breed: $("#"+resubmitID+"-breed").text(),
                 rebreed: event.target.dataset.breed,
                 resize: event.target.dataset.size,
                 regender: event.target.dataset.gender,
-                reage: event.target.dataset.age
-                //reregion: event.target.dataset.location
-                
-
-                //size: $("p [data-size = 'size']")
+                reage: event.target.dataset.age,
+                reregion: event.target.dataset.location
             };
-
-            //var breed = $(`p [data-breed="{{breed}}"]`).val();
-            //var size = $("p [data-size= 'size']").val();
-            // var gender = $("p [data-gender= 'gender']").val();
-            // var location = $("p [data-location= 'location']").val();
-            //var age = $("p [data-age= 'age']").val();
-            //console.log(oldSurvey);
 
             apiQuery = "http://api.petfinder.com/pet.find?";
             apiKey = "key=c52dc8a371569b0c38590a22793f487b";
             rebreed = "&breed=" + resubmitForm.rebreed;
             resize = "&size=" + resubmitForm.resize;
             regender = "&gender=" + resubmitForm.regender
-            reregion = "&location=12345";
+            reregion = "&location=" + resubmitForm.reregion;
             reage = "&age=" + resubmitForm.reage;
             format = "&format=json&callback=?";
             apiURL = apiQuery + apiKey + rebreed + resize + regender + reregion + reage + format;
-            petFinderCall(apiURL);
+           //petSurveyPost(resubmitForm);
+                petFinderCall(apiURL);
         })
 
         $("#survey-submit").click(function (event) {
@@ -213,8 +206,9 @@
                 dataType: "jsonp",
                 method: "GET"
             }).then(function (response) {
-
+                console.log(response.petfinder);
                 petFinderData = response.petfinder.pets.pet;
+
                 showPetData(petFinderData);
             });
         }
