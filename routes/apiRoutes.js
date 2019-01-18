@@ -24,4 +24,13 @@ module.exports = function(app) {
       res.json(survey);
     });
   });
+
+
+  app.get("/api/examples/:id", function(req, res) {
+    console.log(req.body);
+    db.Survey.destroy({ where: { id: req.body.id } }).then(function(survey) {
+      console.log(survey);
+      res.json(survey);
+    });
+  });
 };
