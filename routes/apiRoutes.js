@@ -22,13 +22,22 @@ module.exports = function (app) {
       res.json(surveyData);
     });
   });
-  
+
   //This logs the starter survey input
   app.post("/api/starter", function (req, res) {
     console.log(req.body);
     db.Starter.create(req.body).then(function (starter) {
+      console.log(starter);
       res.json(starter);
     });
+  });
+
+  app.post("/api/recs", function (req, res) {
+    var id = req.body.surveyId;
+    for (i = 0; i < req.body.recommendations.length; i++) {
+      db.Recommendation.create({ StarterId: id, recommendation: req.body.recommendations[i] })
+    };
+    res.end();
   });
 
 
