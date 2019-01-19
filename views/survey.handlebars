@@ -93,15 +93,13 @@
         </div>
         </div>
         </div>
-        <br>
-        <br>
         <div class="submit-container">
             <div></div>
         <input type="submit" value="Submit" id="survey-submit" style="height: 60px;">
         </div>
         <br><br>
-
-        <div id="pet-container"></div>
+    
+        <div class="container" id="pet-container"></div>
 
 
         <h2>Submitted Surveys</h2>
@@ -253,7 +251,7 @@
                         <div class="breed-details">
                         <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
                         </div>
-                        <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
+                        <a class="btn btn-primary card-detail" data-val="${i}" id="learnmorebutton">Learn more about ${JSON.stringify(petList[i].petName)}</a>
                         </div>
                         </div>`);
                 };
