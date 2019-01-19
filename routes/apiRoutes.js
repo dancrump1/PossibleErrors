@@ -65,3 +65,4 @@ module.exports = function (app) {
       db.Recommendation.create({ StarterId: id, recommendation: req.body.recommendations[i] })
     };
     res.end();
+    
