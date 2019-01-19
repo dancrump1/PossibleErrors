@@ -301,13 +301,14 @@ pawPrintSignUpUrl{
 }
 .petcard{
   border-radius: 25px;
-  background-image: url("bluepaws.gif");
+  background-image: url("greenpaws.gif");
   padding: 20px; 
   color: #000000;  
   border-style: dotted;
   text-shadow: 1px 1px rgb(255, 255, 255);
   border-width: thick;
-  width: 400px;
+  display: block;
+  width: 100%;
 }
 .breed-details{
   margin-top: 15px;
@@ -315,7 +316,7 @@ pawPrintSignUpUrl{
 
 #pet-container{
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 5px;
 }
 
@@ -339,10 +340,9 @@ border-style: ridge;
 .submit-container{
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr;
-  width: 60%;
-  height: 90px;
-  margin-left: 20%;
-  background-color: aqua;
+  width: 100%;
+  height: 60px;
+  background-color: #56ad90;
 }
 
 
@@ -365,4 +365,13 @@ border-style: ridge;
     display:none;
   }
 
+}
+#learnmorebutton {
+  background-color: #e4e4e4;
+  border-color: #000000;
+}
+#survey-submit {
+  background-color: #e4e4e4;
+  border-color: #000000;
+  border-radius: 25px;
 }
