@@ -31,6 +31,17 @@ module.exports = function (app) {
     });
   });
 
+  //Search History
+  app.get("/history", function(req, res){
+    db.Survey.findAll({}).then(function(surveys){
+      res.render("history", {
+        msg: "FetPinder",
+        surveys: surveys
+      });
+
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");

@@ -31,6 +31,12 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/history", function(req, res){
+    db.Survey.findAll({}).then(function(history){
+      res.json(history);
+    });
+  });
+
 
   // Delete an example by id
   app.delete("/api/examples", function (req, res) {
