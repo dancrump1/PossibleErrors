@@ -119,7 +119,7 @@
                 event.preventDefault();
 
                 if (validateForm()) {
-                    var surveyArray =
+                    surveyArray =
                         [
                             $("#q1").val(),
                             $("#q2").val(),
@@ -128,7 +128,7 @@
                             $("#q5").val()
 
                         ];
-                    var surveyAnswersObj =
+                    surveyAnswersObj =
                     {
                         livingSpace: $("#q1 option:selected").text(),
                         yardSize: $("#q2 option:selected").text(),
@@ -136,7 +136,7 @@
                         otherPets: $("#q4 option:selected").text(),
                         dogPersonality: $("#q5 option:selected").text()
                     }
-                    var totalScore = 0;
+                    totalScore = 0;
                     for (i = 0; i < surveyArray.length; i++) {
                         totalScore += parseInt(surveyArray[i])
                     }
@@ -145,7 +145,7 @@
                     alert("Please fill out all questions");
                 }
                 petSurveyPost(surveyAnswersObj);
-                breedSelectLogic(surveyArray, totalScore, surveyAnswersObj);
+
             });
 
 
@@ -165,9 +165,21 @@
                 $.ajax("/api/starter", {
                     type: "POST",
                     data: userData
-                }).then(() => {
+                }).then((res) => {
+                    var surveyId = res.id
+                    var request = {
+                        surveyId: surveyId,
+                        recommendations: breedSelectLogic(surveyArray, totalScore, surveyAnswersObj)
+                    }
                     console.log("User Data was added!");
-                    //location.reload(); //reloads page to clear out survey fields
+                    $.ajax("/api/recs", {
+                        type: "POST",
+                        data: JSON.stringify(request),
+                        contentType: "application/json"
+                    }).then(() => {
+                        console.log("breed recs saved");
+                    })
+
                 });
             }
 
@@ -198,7 +210,7 @@
                             b.) ${recommendation[1]}
                             c.) ${recommendation[2]}
                             d.) ${recommendation[3]}`
-                        redirectMain();
+                        //redirectMain();
                         break;
                     case 8:
                     case 9:
@@ -219,7 +231,8 @@
                             c.) ${recommendation[2]}
                             d.) ${recommendation[3]}`
                         console.log(recommendtext);
-                        redirectMain();
+
+                        //redirectMain();
                         break;
                     case 11:
                     case 12:
@@ -240,7 +253,8 @@
                             c.) ${recommendation[2]}
                             d.) ${recommendation[3]}`
                         console.log(recommendtext);
-                        redirectMain();
+
+                        //redirectMain();
                         break;
                     case 14:
                     case 15:
@@ -261,7 +275,8 @@
                             c.) ${recommendation[2]}
                             d.) ${recommendation[3]}`
                         console.log(recommendtext);
-                        redirectMain();
+
+                        //redirectMain();
                         break;
                     case 17:
                     case 18:
@@ -283,13 +298,14 @@
                             c.) ${recommendation[2]}
                             d.) ${recommendation[3]}`
                         console.log(recommendtext);
-                        redirectMain();
+                        //redirectMain();
                         break;
 
                     default:
-                        recommendation = `The pet for you is a nice pet Rock!`
+                        recommendation = ['rock'];
                         break;
                 }
+                return recommendation;
             }
 
 
