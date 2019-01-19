@@ -138,6 +138,7 @@
 
         $(".re-submit").click(function (event) {
             event.preventDefault();
+            $("#pet-container").html("");
             let resubmitID = event.target.dataset.submit;
             //let resubmitID = $(this).data("submit")
             let resubmitForm = {
