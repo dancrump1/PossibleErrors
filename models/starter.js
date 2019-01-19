@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     yardSize: DataTypes.STRING,
     hoursAlone: DataTypes.STRING,
     otherPets: DataTypes.STRING,
-    dogPersonality: DataTypes.STRING,
+    dogPersonality: DataTypes.STRING
   },
   {
     timestamps: true,
