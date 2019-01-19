@@ -1,3 +1,5 @@
+/* General App Styling */
+
 @font-face{
   font-family: PuppyBellies;
   src: url('PuppyBellies.ttf');
@@ -7,13 +9,17 @@
   line-height: 2.5;
 }
 
+h3 {
+  color:white;
+}
+
 .navbar {
-  background-color:#004C81;
+  background-color:#56ad90;
   height:auto;
-  border-bottom:solid 4px #004C81;
+  /* border-bottom:solid 4px #004C81; */
   margin:0px 0px 0px 0px;
-  padding:10px 0px 0px 0px;
   width:100%;
+  z-index:1;
   
 }
 
@@ -27,26 +33,33 @@
   color:white;
 }
 
+body {
+  position: relative;
+  font-family: PuppyBellies;
+  background-color:#E1E8ED;
+  height:100%;
+}
+
+
+
+
+
+
+
+/* Home Page Paw Print Styling */
 #paw{
  justify-content:left;
 }
 
-body {
-  position: relative;
-  background-color: #eeeeee;
-  font-family: PuppyBellies;
-  background-color: white;
-  height:100%;
-}
-
 .pawBackground img{
-  margin:0 auto;
-width: 90%;
+margin:0px 0px 5% 0px;
+width: 60%;
 }
 
 .pawBackground{
 position: relative;
-margin: 0 auto;
+/* margin: 0 auto; */
+left:27%;
 width:80%;
 }
 
@@ -66,79 +79,182 @@ width:80%;
 
 #paw1{
   position: absolute;
-  top:29%;
-  right: 70;
-  /* border:1px solid blueviolet; */
-  width: 22%;
-  height: 20%;
+  top:28%;
+  right: 85%;
+  border:1px solid blueviolet;
+  width: 15%;
+  height: 18%;
 }
 
 #paw1TextPosition{
   position:absolute;
-  top: 35%;
-  left:25%;
+  top: 27%;
+  left:10%;
 }
 
 #paw2{
   position: absolute;
-  top:10%;
-  right: 52%;
-  /* border:1px solid blueviolet; */
-  width: 25%;
+  top:9%;
+  right: 69%;
+  border:1px solid blueviolet;
+  width: 15%;
   height: 25%;
 }
 
 #paw2TextPosition{
   position:absolute;
-  top: 30%;
+  top: 15%;
   left:0%;
 }
 
 #paw3{
   position: absolute;
-  top:16%;
-  right: 27%;
-  /* border:1px solid blueviolet; */
-  width: 22%;
-  height: 25%;
+  top:15%;
+  right: 51%;
+  border:1px solid blueviolet;
+  width: 14%;
+  height: 22%;
 }
 
 #paw3TextPosition{
   position:absolute;
-  top: 30%;
+  top: 13%;
   left:0%;
 }
 
 #paw4{
   position: absolute;
-  top:42%;
-  right: 11%;
-  /* border:1px solid blueviolet; */
-  width: 22%;
+  top:39%;
+  right: 40%;
+  border:1px solid blueviolet;
+  width: 16%;
   height: 20%;
 }
 
 #paw4TextPosition{
   position:absolute;
-  top: 25%;
+  top: 10%;
   left:0%;
 }
 
 #paw5{
   position: absolute;
-  top:50%;
-  right: 35%;
-  /* border:1px solid blueviolet; */
-  width: 44%;
-  height: 38%;
+  top:48%;
+  right:57%;
+  border:1px solid blueviolet;
+  width: 30%;
+  height: 35%;
 }
 
 #paw5TextPosition{
   position:absolute;
-  top: 23%;
+  top: 12%;
   left:0%;
-  right:3%;
+  right:0%;
 }
+
+
+/* Mobile Paw Styling */
+
+.mobilePawContainer{
+  position:relative;
+}
+
+.mobileBackground{
+  position:relative;
+  height:800px;
+}
+
+
+
+
+/* Mobile Sign Up */
+#pawPrintSignUp{
+  height:120px;
+  margin: 0px 0px 50px 0px;
+}
+
+#pawPrintSignUp img{
+  width:45%;
+}
+
+
+pawPrintSignUpUrl{
+  height:100%;
+  float:left;
+}
+
+
+
+
+/* Mobile Take Survey */
+
+#pawPrintSurvey{
+  height:120px;
+  margin: 0px 0px 50px 0px;
+}
+
+#pawPrintSurvey img{
+  float:right;
+  width:50%;
+}
+
+#pawPrintSurveyUrl{
+  width:100%;
+}
+
+#pawPrintSurveyUrl h1{
+  float:right;
+  right:5%;
+  bottom:45%;
+}
+
+
+/* Mobile Display All */
+
+#pawPrintDisplay{
+  height:120px;
+  margin:0px 0px 50px 0px;
+}
+
+#pawPrintDisplay img{
+  float:left;
+  width:50%;
+}
+
+
+
+/* Mobile Search For Pet */
+#pawPrintSearch {
+  height:120px;
+  margin: 0px 0px 50px 0px;
+}
+
+#pawPrintSearch img{
+  float:right;
+  width:50%;
+}
+
+
+/* Mobile Search History */
+
+#pawPrintHistory{
+  height:120px;
+}
+#pawPrintHistory img{
+  float:left;
+  width:50%;
+}
+
+#pawPrintHistory h1{
+  float:left;
+}
+
+
+
+
+
+/* Footer Nav Bar Styling */
 
 .navbar-fixed-footer{
   position:absolute;
@@ -146,7 +262,7 @@ width:80%;
   width:100%;
   height:auto;
   color:white;
-  background-color:#004C81;
+  background-color:#56ad90;
   text-align:center;
   
 }
@@ -155,97 +271,11 @@ width:80%;
   padding:10px;
 }
 
-h3 {
-  color:white;
-}
 
 
 
-.grid-container-top {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 10px;
-}
 
-.grid-container-second-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* padding: 10px; */
-}
-
-.grid-container-third-row {
-  display: grid;
-  height:300px;
-  grid-template-columns: auto;
-  padding: 10px;
-  margin-left: 25%;
-}
-
-.grid-item {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size: 30px;
-  text-align: center;
-}
-
-#empty{
-  width:0px;
-  height:0px;
-}
-
-.center {
-  /* margin: auto;
-  width: 50%;
-  padding: 10px; */
-}
-
-
-/* Paw Shapes */
-
-#bigpad {
-  position: relative;
-  width: 400px;
-  height: 100%;
-  margin: 20px 0px 20px 0px;
-  color:white;
-  background:black;
-  border-radius: 50% / 10%;
-  text-align: center;
-  text-indent: .1em;
-}
-#bigpad:before {
-  content: '';
-  position: absolute;
-  top: 10%;
-  bottom: 10%;
-  right: -5%;
-  left: -5%;
-  background: inherit;
-  border-radius: 5% / 50%;
-}
-
-
-#smallpaw {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 140px;
-  height: 180px;
-  background-color:black;
-  border-radius: 50% 70% 50% 50% / 60% 70% 40% 40%;
-}
-
-#smallpawthree{
-  position:relative;
-  right:0px;
-  display: block;
- 
-  width: 126px;
-  height: 180px;
-  background-color:black;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-}
+/*Survey Styling*/
 
 .text{
   color:black;
@@ -285,7 +315,7 @@ h3 {
 
 #pet-container{
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 5px;
 }
 
@@ -313,4 +343,26 @@ border-style: ridge;
   height: 90px;
   margin-left: 20%;
   background-color: aqua;
+}
+
+
+/* Media Queries */
+
+/* Cell Phones */
+
+@media only screen and (max-width: 500px) {
+  #pawPrintImage{ display: none;}
+  .pawText {display: none;}
+  #paw1 {display:none;}
+  #paw2 {display:none;}
+  #paw3 {display:none;}
+  #paw4 {display:none;}
+  #paw5 {display:none;}
+}
+
+@media only screen and (min-width: 415px) {
+  .mobilePawContainer{
+    display:none;
+  }
+
 }
