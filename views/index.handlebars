@@ -15,16 +15,23 @@
 
 <body>
     <div class="navbar">
-        <div class="container">
+        <div class="container" id="navContainer">
             <a href="/">
-            <h1 id="fetPinder">FetPinder</h1>
+                <h1 id="fetPinder">FetPinder</h1>
             </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                <img src="/assets/pawprint.png" id="paw"></a>
+            <div class="col-md-10">
+                <h3 id="signIn">Sign In</h3>
+            </div>
+            <div class="cold-md-2">
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                    <img src="/assets/pawprint.png" id="paw">
+                </a>
+            </div>
+
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="mainContainer">
         <div class="mobilePawContainer">
             <div class="mobileBackground">
                 <div id="pawPrintSignUp">
@@ -39,50 +46,52 @@
                         <img src="/assets/pawprint.svg">
                     </div>
                 </div>
-                <div id="pawPrintSurveyUrl">
-                    <h1 style=" font-size:6vw;">Find Your Pet!</h1>
-                </div> 
+                <div class="hoverColor" id="pawPrintSurveyUrl">
+                    <h1 class="hoverColor" style="font-size:6vw;">Find Your Pet!</h1>
+                </div>
                 <div id="pawPrintDisplay">
                     <img src="/assets/pawprint.svg">
-                    <h1 style="font-size:6vw;">Display All Pets</h1>
+                    <h1 class="hover" style="font-size:6vw;">Display All Pets</h1>
                 </div>
                 <div id="pawPrintSearch">
                     <img src="/assets/pawprint.svg">
-                    <h1 style="font-size:6vw;">Search Pets</h1>
+                    <h1 class="hover" style="font-size:6vw;">Search Pets</h1>
                 </div>
                 <div id="pawPrintHistory">
                     <img src="/assets/pawprint.svg">
-                    <h1 style="font-size:6vw;">Search History</h1>
+                    <h1 class="hover" style="font-size:6vw;">Search History</h1>
                 </div>
             </div>
         </div>
 
         <div class="pawBackground">
+            {{!-- <div id="pawGroup"> --}}
             <div id="paw1">
                 <div class="pawTextDiv" id="paw1TextPosition">
-                    <h1 class="pawText" style="font-size:3vw;">Sign In</h1>
+                    <h1 class="pawText hoverColor">Sign Up</h1>
                 </div>
             </div>
             <div id="paw2">
                 <div class="pawTextDiv" id="paw2TextPosition">
-                    <h1 class="pawText" style="font-size:3vw;">Search All Pets</h1>
+                    <h1 class="pawText hoverColor">Search All Pets</h1>
                 </div>
             </div>
             <div id="paw3">
                 <div class="pawTextDiv" id="paw3TextPosition">
-                    <h1 class="pawText" style="font-size:3vw;">Display All Pets</h1>
+                    <h1 class="pawText hoverColor">Display All Pets</h1>
                 </div>
             </div>
             <div id="paw4">
                 <div class="pawTextDiv" id="paw4TextPosition">
-                    <h1 class="pawText" style="font-size:3vw;">Search History</h1>
+                    <h1 class="pawText hoverColor">Search History</h1>
                 </div>
             </div>
             <div id="paw5">
                 <div class="pawTextDiv" id="paw5TextPosition">
-                    <h1 class="pawText" style="font-size:5vw;">Find Your Dog!</h1>
+                    <h1 class="pawText hoverColor" id="bigPawText">Find Your Dog!</h1>
                 </div>
             </div>
+            {{!-- </div> --}}
             <div id="pawPrintImage">
                 <img src="/assets/pawprint.svg">
             </div>
@@ -92,19 +101,27 @@
 
 
     </div>
-
-
-
-
-    <div class="navbar-fixed-footer">
+  <div class="footerTest">
         <h3 id="footer-header"><span id="fetPinder">© 2019 FetPinder</span></h3>
     </div>
+
+
+
+  
 
     <script>
         $("#paw5").click(function () {
             window.location = "/survey";
         });
+
+        $(".hoverColor").hover(function () {
+            $(this).css("color", "#56ad90");
+        }, function () {
+            $(this).css("color", "white");
+        });
+
     </script>
+
 </body>
 
 
