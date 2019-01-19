@@ -26,7 +26,7 @@ module.exports = function (app) {
   });
 
   app.get("/starter", function (req, res) {
-    res.render("initialQs", {
+    res.render("starter", {
       msg: "Fill out your initial survey!"
     });
   });
