@@ -39,7 +39,7 @@ module.exports = function (app) {
         surveys: surveys
       });
 
-    })
+    });
   });
 
   // Render 404 page for any unmatched routes
