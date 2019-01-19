@@ -1,0 +1,14 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Landon#1",
+    "database": "petfinder_db",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}
