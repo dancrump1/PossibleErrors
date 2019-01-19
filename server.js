@@ -7,7 +7,7 @@ var app = express();
 var exphbs = require("express-handlebars");
 var session = require("express-session");
 var bodyParser = require("body-parser");
-var env = require("dotenv").load();
+require("dotenv").load();
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
