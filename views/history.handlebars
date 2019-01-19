@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container">
+            <a href="/">
+                <h1 id="fetPinder">FetPinder</h1>
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                <img src="/assets/pawprint.png" id="paw"></a>
+        </div>
+    </div>
+
+
+    <ul>
+        <div class="previous-surveys">
+            {{#each surveys}}
+            <li>
+                <h5>Survey Number: {{this.id}}</h5>
+                <p>Breed: <span id="{{this.id}}-breed">{{this.breed}}</span></p>
+                <p>Size: {{this.size}}</p>
+                <p>Gender: {{this.gender}}</p>
+                <p>Location: {{this.location}}</p>
+                <p>Age: {{this.age}}</p>
+                <p>Time of Survey: {{this.createdAt}}</p>
+                <input type="submit" placeholder="ReSubmit" class="re-submit" data-id="{{this.id}}" data-id="{{this.id}}"
+                    data-breed="{{this.breed}}" data-age="{{this.age}}" data-location="{{this.location}}" data-gender="{{this.gender}}"
+                    data-size="{{this.size}}">
+                <button class="btn btn-md delete-survey" type="submit" data-id="{{id}}">Delete Survey</button>
+            </li>
+            {{/each}}
+        </div>
+    </ul>
+
+    <div id="pet-container"></div>
+
+   
+
+    <script>
+
+        $(".delete-survey").click(function (event) {
+            event.preventDefault();
+            console.log("you clicked the delete button");
+            var id = $(this).data("id");
+            var deleteId = { id: id };
+            deleteButton(deleteId);
+        });
+
+        $(".re-submit").click(function (event) {
+            event.preventDefault();
+            $("#pet-container").html("");
+            let resubmitID = event.target.dataset.submit;
+            //let resubmitID = $(this).data("submit")
+            let resubmitForm = {
+                //breed: $("#"+resubmitID+"-breed").text(),
+                rebreed: event.target.dataset.breed,
+                resize: event.target.dataset.size,
+                regender: event.target.dataset.gender,
+                reage: event.target.dataset.age,
+                reregion: event.target.dataset.location
+            };
+
+            apiQuery = "http://api.petfinder.com/pet.find?";
+            apiKey = "key=c52dc8a371569b0c38590a22793f487b";
+            rebreed = "&breed=" + resubmitForm.rebreed;
+            resize = "&size=" + resubmitForm.resize;
+            regender = "&gender=" + resubmitForm.regender
+            reregion = "&location=" + resubmitForm.reregion;
+            reage = "&age=" + resubmitForm.reage;
+            format = "&format=json&callback=?";
+            apiURL = apiQuery + apiKey + rebreed + resize + regender + reregion + reage + format;
+            //petSurveyPost(resubmitForm);
+            petFinderCall(apiURL);
+        })
+
+        var petFinderCall = (apiURL) => {
+            $.ajax({
+                url: apiURL,
+                dataType: "jsonp",
+                method: "GET"
+            }).then(function (response) {
+                console.log(response.petfinder);
+                petFinderData = response.petfinder.pets.pet;
+
+                showPetData(petFinderData);
+            });
+        }
+
+        var deleteButton = (deleteId) => {
+            $.ajax("/api/examples", {
+                type: "DELETE",
+                data: deleteId
+            }).then(() => {
+                console.log("You deleted survey with ID: " + deleteId);
+                location.reload();
+            });
+        }
+
+        var showPetData = (petFinderData) => {
+            let petList = [];
+            console.log(petFinderData);
+
+            for (let i = 0; i < petFinderData.length; i++) {
+                if (Array.isArray(petFinderData[i].breeds.breed)) {
+                    breed = petFinderData[i].breeds.breed[0].$t;
+                }
+                else {
+                    breed = petFinderData[i].breeds.breed.$t;
+                };
+                //console.log(breed);
+                if (petFinderData[i].media.photos && Array.isArray(petFinderData[i].media.photos.photo)) {
+                    photo = petFinderData[i].media.photos.photo[2].$t;
+                }
+                else {
+                    photo = "";
+                };
+                console.log(i);
+                console.log(photo);
+                let newPet = {
+                    petName: petFinderData[i].name.$t,
+                    petPhoto: photo,
+                    petBreed: breed
+                }
+
+                petList.push(newPet);
+            };
+            console.log(petList);
+
+            for (let i = 0; i < petList.length; i++) {
+
+                //Creating each container for each pet card
+                $("#pet-container").append(`<div class='petcard'>
+                        <div class="card-body text-center">
+                        <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
+                        <div class="card-details">
+                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided" style= "height: 160px">
+                        <div class="breed-details">
+                        <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
+                        </div>
+                        <a class="btn btn-primary card-detail" data-val="${i}">Learn more about ${JSON.stringify(petList[i].petName)}</a>
+                        </div>
+                        </div>`);
+            };
+        }
+
+
+    </script>
+    </body>
+
+</html>

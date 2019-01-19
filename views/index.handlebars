@@ -46,8 +46,10 @@
                         <img src="/assets/pawprint.svg">
                     </div>
                 </div>
+
                 <div class="hoverColor" id="pawPrintSurveyUrl">
                     <h1 class="hoverColor" style="font-size:6vw;">Find Your Pet!</h1>
+
                 </div>
                 <div id="pawPrintDisplay">
                     <img src="/assets/pawprint.svg">
@@ -114,10 +116,18 @@
             window.location = "/survey";
         });
 
+
         $(".hoverColor").hover(function () {
             $(this).css("color", "#56ad90");
         }, function () {
             $(this).css("color", "white");
+        });
+
+        $("#paw4").click(function () {
+            window.location = "/history";
+        });
+        $("#paw1").click(function () {
+            window.location = "/signin";
         });
 
     </script>
