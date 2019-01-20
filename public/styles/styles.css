@@ -1,5 +1,26 @@
 /* General App Styling */
 
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: PuppyBellies;
+  background-color:#E1E8ED;
+  height:100vh;
+  /* overflow-x: hidden; */
+  /* -webkit-text-size-adjust: auto; */
+}
+
+h3{
+  margin-bottom: 0px;
+}
+
+#mainContainer{
+  height: 100%
+}
+
 @font-face{
   font-family: PuppyBellies;
   src: url('PuppyBellies.ttf');
@@ -7,6 +28,13 @@
 
 .list-group-item {
   line-height: 2.5;
+}
+
+#signIn{
+  position:absolute;
+  right:10%;
+  bottom:10%;
+ 
 }
 
 h3 {
@@ -33,12 +61,7 @@ h3 {
   color:white;
 }
 
-body {
-  position: relative;
-  font-family: PuppyBellies;
-  background-color:#E1E8ED;
-  height:100%;
-}
+
 
 
 
@@ -52,25 +75,31 @@ body {
 }
 
 .pawBackground img{
-margin:0px 0px 5% 0px;
-width: 60%;
+margin:0 auto;
+width: 480px;
 }
 
 .pawBackground{
-position: relative;
-/* margin: 0 auto; */
-left:27%;
-width:80%;
+
+margin: 0 auto;
+
+/* left:27%; */
+width: 80%;
 }
 
 #pawPrintImage{
-  /* max-width:800px; */
-  margin: 0px 0px 20px 0px;
+width: 480px;
+  margin: 0 auto;
 }
 
 .pawText{
   color:white;
   text-align:center;
+  font-size:2em;
+}
+
+#bigPawText{
+  font-size:3em;
 }
 
 .pawTextDiv{
@@ -89,7 +118,7 @@ width:80%;
 #paw1TextPosition{
   position:absolute;
   top: 27%;
-  left:10%;
+  left:13%;
 }
 
 #paw2{
@@ -103,7 +132,7 @@ width:80%;
 
 #paw2TextPosition{
   position:absolute;
-  top: 15%;
+  top: 23%;
   left:0%;
 }
 
@@ -118,8 +147,8 @@ width:80%;
 
 #paw3TextPosition{
   position:absolute;
-  top: 13%;
-  left:0%;
+  top: 20%;
+  right:7%;
 }
 
 #paw4{
@@ -133,7 +162,7 @@ width:80%;
 
 #paw4TextPosition{
   position:absolute;
-  top: 10%;
+  top: 15%;
   left:0%;
 }
 
@@ -148,21 +177,27 @@ width:80%;
 
 #paw5TextPosition{
   position:absolute;
-  top: 12%;
+  top: 18%;
   left:0%;
   right:0%;
 }
 
+#pawGroup{
+  position: absolute;
+  width: 500px;
+left: 24%;
+  height: 100%;
+}
 
 /* Mobile Paw Styling */
 
 .mobilePawContainer{
-  position:relative;
+ height: calc(100vh - 60px);
 }
 
 .mobileBackground{
   position:relative;
-  height:800px;
+ height: 100%;
 }
 
 
@@ -256,8 +291,8 @@ pawPrintSignUpUrl{
 
 /* Footer Nav Bar Styling */
 
-.navbar-fixed-footer{
-  position:absolute;
+.footerTest{
+  margin-top: 100px;
   bottom:0;
   width:100%;
   height:auto;
@@ -360,12 +395,56 @@ border-style: ridge;
   #paw5 {display:none;}
 }
 
+@media only screen and (max-width: 1200px) {
+  .pawText{font-size:2em }
+
+  #bigPawText{font-size:3em}
+
+  #paw1TextPosition{
+    position:absolute;
+    top: 10%;
+    left:9%;
+  }
+  
+
+  
+}
+
+@media only screen and (max-width:995px){
+  .pawText{font-size:1em }
+
+  #bigPawText{font-size:2em}
+
+  #paw1TextPosition{
+    position:absolute;
+    top: 15%;
+    left:21%;
+  }
+  
+}
+
+
+@media only screen and (max-width:770px){
+  .pawText{font-size:1em }
+
+  #bigPawText{font-size:em}
+
+  #paw1TextPosition{
+    position:absolute;
+    top: 27%;
+    left:21%;
+  }
+  
+}
+
+
 @media only screen and (min-width: 415px) {
   .mobilePawContainer{
     display:none;
   }
 
 }
+
 #learnmorebutton {
   background-color: #e4e4e4;
   border-color: #000000;
@@ -375,3 +454,4 @@ border-style: ridge;
   border-color: #000000;
   border-radius: 25px;
 }
+
