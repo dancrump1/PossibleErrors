@@ -1,0 +1,100 @@
+<div class="navbar">
+    <div class="container">
+        <a href="/">
+            <h1 id="fetPinder">FetPinder</h1>
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="/assets/pawprint.png" id="paw"></a>
+    </div>
+</div>
+<br><br>
+<input type="text" name="name" placeholder="Enter your name here" id="name">
+<input type="text" name="location" id="location" placeholder="Enter your location here">
+
+<input type="submit" value="Submit" id="survey-submit" style="height: 60px;">
+
+<div id="pet-container"></div>
+
+<script>
+
+        $("#survey-submit").click(function (event) {
+            //event.preventDefault();
+                apiQuery = "http://api.petfinder.com/pet.find?";
+                apiKey = "key=c52dc8a371569b0c38590a22793f487b";
+                location = "&location=" + $("#location").val();
+                name = "&name=" + $("#name").val();
+                format = "&format=json&callback=?";
+                apiURL = apiQuery + apiKey + location + name + format;
+                console.log(apiURL);
+                showPetData(name, location);
+                petFinderCall(apiURL);
+            });
+
+
+
+        //-------------------------Helper Functions----------------------------//
+
+        
+
+        var petFinderCall = (apiURL) => {
+            $.ajax({
+                url: apiURL,
+                dataType: "jsonp",
+                method: "GET"
+            }).then(function (response) {
+                console.log(response);
+                //petFinderData = response.petfinder.pets.pet;
+
+                //showPetData(petFinderData);
+            });
+        }
+
+        var showPetData = (petFinderData) => {
+            let petList = [];
+            console.log(petFinderData);
+
+            for (let i = 0; i < petFinderData.length; i++) {
+                if (Array.isArray(petFinderData[i].breeds.breed)) {
+                    breed = petFinderData[i].breeds.breed[0].$t;
+                }
+                else {
+                    breed = petFinderData[i].breeds.breed.$t;
+                };
+                //console.log(breed);
+                if (petFinderData[i].media.photos && Array.isArray(petFinderData[i].media.photos.photo)) {
+                    photo = petFinderData[i].media.photos.photo[2].$t;
+                }
+                else {
+                    photo = "";
+                };
+                console.log(i);
+                console.log(photo);
+                let newPet = {
+                    petName: petFinderData[i].name.$t,
+                    petPhoto: photo,
+                    petBreed: breed
+                }
+
+                petList.push(newPet);
+            };
+            console.log(petList);
+
+            for (let i = 0; i < petList.length; i++) {
+
+                //Creating each container for each pet card
+                $("#pet-container").append(`<div class='petcard'>
+                        <div class="card-body text-center">
+                        <h5 class="card-title">${JSON.stringify(petList[i].petName)}</h5>
+                        <div class="card-details">
+                        <img src=${JSON.stringify(petList[i].petPhoto)} alt="No Image Provided" style= "height: 160px">
+                        <div class="breed-details">
+                        <h6 class="card-subtitle mb-2 text-muted">Breed: ${JSON.stringify(petList[i].petBreed)}</h6>
+                        </div>
+                        <a class="btn btn-primary card-detail" data-val="${i}" id="learnmorebutton">Learn more about ${JSON.stringify(petList[i].petName)}</a>
+                        </div>
+                        </div>`);
+            };
+        }
+
+
+</script>
