@@ -64,6 +64,13 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/users", function (req, res) {
+    db.user.findAll({}).then(function (users) {
+      console.log(users);
+      res.json(users);
+    });
+  });
+
 
   app.post("/api/recs", function (req, res) {
     var id = req.body.surveyId;
