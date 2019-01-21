@@ -7,14 +7,14 @@ module.exports = function (app) {
       order: [
         ["id", "DESC"]
       ]
-    }).then((user) => {
+    }).then(function(user) {
       if (user) {
-        var data = user.dataValues
+        var data = user.dataValues;
         res.render("index", {
           user: data
         });
       }
-      else{res.render("index")}
+      else{res.render("index");}
     });
   });
 
