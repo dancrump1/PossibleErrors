@@ -7,14 +7,14 @@ module.exports = function (app) {
       order: [
         ["id", "DESC"]
       ]
-    }).then(function(user) {
+    }).then(function (user) {
       if (user) {
         var data = user.dataValues;
         res.render("index", {
           user: data
         });
       }
-      else{res.render("index");}
+      else { res.render("index"); }
     });
   });
 
@@ -37,6 +37,19 @@ module.exports = function (app) {
     });
   });
 
+
+
+  app.put("/dashbaord", function(req, res) {
+    db.user.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
   // Load example page and pass in an example by id
   app.get("/survey/:id", function (req, res) {
@@ -80,4 +93,22 @@ module.exports = function (app) {
   app.get("*", function (req, res) {
     res.render("404");
   });
+
+  app.get("/signin", function (req, res) {
+    db.user.findAll({}).then(function (userData) {
+      console.log(userData.dataValues);
+      res.render("searchall", {
+        msg: "Search History",
+        userData: userData.dataValues
+      });
+    });
+  });
+
+
+
+
+
+
+
+
 };

@@ -42,9 +42,9 @@ module.exports = function (sequelize, Sequelize) {
       type: Sequelize.DATE
     },
 
-    status: {
-      type: Sequelize.ENUM("active", "inactive"),
-      defaultValue: "active"
+    active: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: 1
     }
 
 
