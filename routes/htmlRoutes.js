@@ -3,7 +3,19 @@ var db = require("../models");
 module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
-    res.render("index");
+    db.user.findOne({
+      order: [
+        ["id", "DESC"]
+      ]
+    }).then(function(user) {
+      if (user) {
+        var data = user.dataValues;
+        res.render("index", {
+          user: data
+        });
+      }
+      else{res.render("index");}
+    });
   });
 
   app.get("/survey", function (req, res) {
@@ -14,7 +26,7 @@ module.exports = function (app) {
       limit: 4
     }).then(function (recs) {
       var recsArr = [];
-      for (i=0; i < recs.length; i++){
+      for (i = 0; i < recs.length; i++) {
         recsArr.push(recs[i].recommendation);
       }
       res.render("survey", {
@@ -52,13 +64,13 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/searchall", function(req, res){
+  app.get("/searchall", function (req, res) {
     res.render("searchall", {
       msg: "Search History"
     });
   });
 
-  app.get("/displayall", function(req, res){
+  app.get("/displayall", function (req, res) {
     res.render("displayall", {
       msg: "Fill out breed and location"
     });
