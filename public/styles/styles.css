@@ -75,39 +75,21 @@ h3 {
 }
 
 .pawBackground img{
-position:relative;
-width:100%;
-max-width:480px;
-height:100%;
+margin:0 auto;
+width: 480px;
 }
 
 .pawBackground{
-  z-index:9;
-  /* margin: 0 auto; */
-  position: absolute;
-  width: 38%;
-  left: 31%;
-  height: 100%;
-  border: 1px solid blueviolet;
+
+margin: 0 auto;
+
+/* left:27%; */
+width: 80%;
 }
 
 #pawPrintImage{
+width: 480px;
   margin: 0 auto;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 1px solid blueviolet;
-}
-
-#pawPrintImage .img{
-  position:absolute;
-  bottom:90%;
-  z-index: 5;
-  max-width: 480px;
-  max-height:480px;
-  height:auto;
-  /* margin: 0 auto; */
-  
 }
 
 .pawText{
@@ -126,11 +108,11 @@ height:100%;
 
 #paw1{
   position: absolute;
-  top:26%;
-  right: 75%;
+  top:28%;
+  right: 85%;
   border:1px solid blueviolet;
-  width: 25%;
-  height: 17%;
+  width: 15%;
+  height: 18%;
 }
 
 #paw1TextPosition{
@@ -141,11 +123,11 @@ height:100%;
 
 #paw2{
   position: absolute;
-  top:7%;
-  right: 48%;
+  top:9%;
+  right: 69%;
   border:1px solid blueviolet;
-  width: 26%;
-  height: 20%;
+  width: 15%;
+  height: 25%;
 }
 
 #paw2TextPosition{
@@ -156,11 +138,11 @@ height:100%;
 
 #paw3{
   position: absolute;
-  top:12%;
-  right: 17%;
+  top:15%;
+  right: 51%;
   border:1px solid blueviolet;
-  width: 25%;
-  height: 20%;
+  width: 14%;
+  height: 22%;
 }
 
 #paw3TextPosition{
@@ -171,11 +153,11 @@ height:100%;
 
 #paw4{
   position: absolute;
-  top:33%;
-  right: 0%;
+  top:39%;
+  right: 40%;
   border:1px solid blueviolet;
-  width: 25%;
-  height: 18%;
+  width: 16%;
+  height: 20%;
 }
 
 #paw4TextPosition{
@@ -186,11 +168,11 @@ height:100%;
 
 #paw5{
   position: absolute;
-  top:42%;
-  right:28%;
+  top:48%;
+  right:57%;
   border:1px solid blueviolet;
-  width: 50%;
-  height: 30%;
+  width: 30%;
+  height: 35%;
 }
 
 #paw5TextPosition{
@@ -201,14 +183,10 @@ height:100%;
 }
 
 #pawGroup{
-  z-index:9;
-  /* margin: 0 auto; */
   position: absolute;
-  width: 100%;
-  top:10%;
-  left: 0%;
+  width: 500px;
+left: 24%;
   height: 100%;
-  border: 1px solid blueviolet;
 }
 
 /* Mobile Paw Styling */
