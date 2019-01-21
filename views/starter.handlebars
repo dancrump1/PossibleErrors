@@ -10,6 +10,15 @@
 
 <body>
 
+<div class="navbar">
+    <div class="container">
+        <a href="/">
+            <h1 id="fetPinder">FetPinder</h1>
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <img src="/assets/pawprint.png" id="paw"></a>
+    </div>
+</div>
 
 
 
@@ -119,7 +128,7 @@
                 event.preventDefault();
 
                 if (validateForm()) {
-                    var surveyArray =
+                    surveyArray =
                         [
                             $("#q1").val(),
                             $("#q2").val(),
@@ -128,7 +137,7 @@
                             $("#q5").val()
 
                         ];
-                    var surveyAnswersObj =
+                    surveyAnswersObj =
                     {
                         livingSpace: $("#q1 option:selected").text(),
                         yardSize: $("#q2 option:selected").text(),
@@ -136,7 +145,7 @@
                         otherPets: $("#q4 option:selected").text(),
                         dogPersonality: $("#q5 option:selected").text()
                     }
-                    var totalScore = 0;
+                    totalScore = 0;
                     for (i = 0; i < surveyArray.length; i++) {
                         totalScore += parseInt(surveyArray[i])
                     }
@@ -145,7 +154,7 @@
                     alert("Please fill out all questions");
                 }
                 petSurveyPost(surveyAnswersObj);
-                breedSelectLogic(surveyArray, totalScore, surveyAnswersObj);
+
             });
 
 
@@ -165,9 +174,21 @@
                 $.ajax("/api/starter", {
                     type: "POST",
                     data: userData
-                }).then(() => {
+                }).then((res) => {
+                    var surveyId = res.id
+                    var request = {
+                        surveyId: surveyId,
+                        recommendations: breedSelectLogic(surveyArray, totalScore, surveyAnswersObj)
+                    }
                     console.log("User Data was added!");
-                    //location.reload(); //reloads page to clear out survey fields
+                    $.ajax("/api/recs", {
+                        type: "POST",
+                        data: JSON.stringify(request),
+                        contentType: "application/json"
+                    }).then(() => {
+                        console.log("breed recs saved");
+                    })
+
                 });
             }
 
@@ -184,83 +205,26 @@
                     case 6:
                     case 7:
                         recommendation = [breedObj.dog1, breedObj.dog2, breedObj.dog3, breedObj.dog4];
-                        var recommendtext =
-                            `Based on your selection of:
-                            1. ${surveyObj.Q1}
-                            2. ${surveyObj.Q2}
-                            3. ${surveyObj.Q3}
-                            4. ${surveyObj.Q4}
-                            5. ${surveyObj.Q5}
-
-                            We recommend the following breeds:
-
-                            a.) ${recommendation[0]}
-                            b.) ${recommendation[1]}
-                            c.) ${recommendation[2]}
-                            d.) ${recommendation[3]}`
                         redirectMain();
                         break;
                     case 8:
                     case 9:
                     case 10:
                         recommendation = [breedObj.dog5, breedObj.dog6, breedObj.dog7, breedObj.dog8];
-                        var recommendtext =
-                            `Based on your selection of:
-                            1. ${surveyObj.Q1}
-                            2. ${surveyObj.Q2}
-                            3. ${surveyObj.Q3}
-                            4. ${surveyObj.Q4}
-                            5. ${surveyObj.Q5}
-                            
-                            We recommend the following breeds:
 
-                            a.) ${recommendation[0]}
-                            b.) ${recommendation[1]}
-                            c.) ${recommendation[2]}
-                            d.) ${recommendation[3]}`
-                        console.log(recommendtext);
                         redirectMain();
                         break;
                     case 11:
                     case 12:
                     case 13:
                         recommendation = [breedObj.dog9, breedObj.dog10, breedObj.dog11, breedObj.dog12];
-                        var recommendtext =
-                            `Based on your selection of:
-                            1. ${surveyObj.Q1}
-                            2. ${surveyObj.Q2}
-                            3. ${surveyObj.Q3}
-                            4. ${surveyObj.Q4}
-                            5. ${surveyObj.Q5}
-                            
-                            We recommend the following breeds:
 
-                            a.) ${recommendation[0]}
-                            b.) ${recommendation[1]}
-                            c.) ${recommendation[2]}
-                            d.) ${recommendation[3]}`
-                        console.log(recommendtext);
                         redirectMain();
                         break;
                     case 14:
                     case 15:
                     case 16:
                         recommendation = [breedObj.dog13, breedObj.dog14, breedObj.dog15, breedObj.dog16];
-                        var recommendtext =
-                            `Based on your selection of:
-                            1. ${surveyObj.Q1}
-                            2. ${surveyObj.Q2}
-                            3. ${surveyObj.Q3}
-                            4. ${surveyObj.Q4}
-                            5. ${surveyObj.Q5}
-                            
-                            We recommend the following breeds:
-
-                            a.) ${recommendation[0]}
-                            b.) ${recommendation[1]}
-                            c.) ${recommendation[2]}
-                            d.) ${recommendation[3]}`
-                        console.log(recommendtext);
                         redirectMain();
                         break;
                     case 17:
@@ -268,28 +232,14 @@
                     case 19:
                     case 20:
                         recommendation = [breedObj.dog17, breedObj.dog18, breedObj.dog19, breedObj.dog20];
-                        var recommendtext =
-                            `Based on your selection of:
-                            1. ${surveyObj.Q1}
-                            2. ${surveyObj.Q2}
-                            3. ${surveyObj.Q3}
-                            4. ${surveyObj.Q4}
-                            5. ${surveyObj.Q5}
-                            
-                            We recommend the following breeds:
-
-                            a.) ${recommendation[0]}
-                            b.) ${recommendation[1]}
-                            c.) ${recommendation[2]}
-                            d.) ${recommendation[3]}`
-                        console.log(recommendtext);
                         redirectMain();
                         break;
 
                     default:
-                        recommendation = `The pet for you is a nice pet Rock!`
+                        recommendation = ['rock'];
                         break;
                 }
+                return recommendation;
             }
 
 

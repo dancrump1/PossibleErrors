@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container">
+            <a href="/">
+                <h1 id="fetPinder">FetPinder</h1>
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                <img src="/assets/pawprint.png" id="paw"></a>
+        </div>
+    </div>
+
+
     <ul>
         <div class="previous-surveys">
             {{#each surveys}}
@@ -20,7 +42,9 @@
 
     <div id="pet-container"></div>
 
-<script>
+   
+
+    <script>
 
         $(".delete-survey").click(function (event) {
             event.preventDefault();
@@ -53,8 +77,8 @@
             reage = "&age=" + resubmitForm.reage;
             format = "&format=json&callback=?";
             apiURL = apiQuery + apiKey + rebreed + resize + regender + reregion + reage + format;
-           //petSurveyPost(resubmitForm);
-                petFinderCall(apiURL);
+            //petSurveyPost(resubmitForm);
+            petFinderCall(apiURL);
         })
 
         var petFinderCall = (apiURL) => {
@@ -128,4 +152,7 @@
         }
 
 
-</script>
+    </script>
+    </body>
+
+</html>
