@@ -68,32 +68,33 @@
 
         <div class="pawBackground">
             {{!-- <div id="pawGroup"> --}}
-            <div id="paw1">
-                <div class="pawTextDiv" id="paw1TextPosition">
-                    <h1 class="pawText hoverColor">Sign Up</h1>
+                <div id="paw1">
+                    <div class="pawTextDiv" id="paw1TextPosition">
+                        <h1 class="pawText hoverColor">Sign Up</h1>
+                    </div>
                 </div>
-            </div>
-            <div id="paw2">
-                <div class="pawTextDiv" id="paw2TextPosition">
-                    <h1 class="pawText hoverColor">Search All Pets</h1>
+                <div id="paw2">
+                    <div class="pawTextDiv" id="paw2TextPosition">
+                        <h1 class="pawText hoverColor">Search All Pets</h1>
+                    </div>
                 </div>
-            </div>
-            <div id="paw3">
-                <div class="pawTextDiv" id="paw3TextPosition">
-                    <h1 class="pawText hoverColor">Display All Pets</h1>
+                <div id="paw3">
+                    <div class="pawTextDiv" id="paw3TextPosition">
+                        <h1 class="pawText hoverColor">Display All Pets</h1>
+                    </div>
                 </div>
-            </div>
-            <div id="paw4">
-                <div class="pawTextDiv" id="paw4TextPosition">
-                    <h1 class="pawText hoverColor">Search History</h1>
+                <div id="paw4">
+                    <div class="pawTextDiv" id="paw4TextPosition">
+                        <h1 class="pawText hoverColor">Search History</h1>
+                    </div>
                 </div>
-            </div>
-            <div id="paw5">
-                <div class="pawTextDiv" id="paw5TextPosition">
-                    <h1 class="pawText hoverColor" id="bigPawText">Find Your Dog!</h1>
+                <div id="paw5">
+                    <div class="pawTextDiv" id="paw5TextPosition">
+                        <h1 class="pawText hoverColor" id="bigPawText">Find Your Dog!</h1>
+                    </div>
                 </div>
-            </div>
-            {{!-- </div> --}}
+                {{!--
+            </div> --}}
             <div id="pawPrintImage">
                 <img src="/assets/pawprint.svg">
             </div>
@@ -103,17 +104,17 @@
 
 
     </div>
-  <div class="footerTest">
+    <div class="footerTest">
         <h3 id="footer-header"><span id="fetPinder">© 2019 FetPinder</span></h3>
     </div>
 
 
 
-  
+
 
     <script>
         $("#paw5").click(function () {
-            window.location = "/survey";
+            window.location = "/starter";
         });
 
 
@@ -126,6 +127,16 @@
         $("#paw4").click(function () {
             window.location = "/history";
         });
+
+        $("#paw3").click(function () {
+            window.location = "/displayall";
+        });
+
+        $("#paw2").click(function () {
+            window.location = "/searchall";
+        });
+
+
         $("#paw1").click(function () {
             window.location = "/signin";
         });

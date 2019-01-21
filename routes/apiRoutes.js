@@ -39,6 +39,12 @@ module.exports = function (app) {
 
   });
 
+  app.get("/api/displayall", function (req, res) {
+    res.json("Search for a pet!");
+    
+
+  });
+
 
   // Delete an example by id
   app.delete("/api/examples", function (req, res) {
