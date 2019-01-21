@@ -7,14 +7,24 @@ module.exports = function (app) {
   });
 
   app.get("/survey", function (req, res) {
-    db.Survey.findAll({}).then(function (surveys) {
-      console.log("HELLO WORLD");
+    db.Recommendation.findAll({
+      order: [
+        ["StarterId", "DESC"]
+      ],
+      limit: 4
+    }).then(function (recs) {
+      var recsArr = [];
+      for (i=0; i < recs.length; i++){
+        recsArr.push(recs[i].recommendation);
+      }
       res.render("survey", {
         msg: "FetPinder",
-        surveys: surveys
+        starter: "Based on the initial survey - the dog breeds most suited for you are: ",
+        recs: recsArr
       });
     });
   });
+
 
   // Load example page and pass in an example by id
   app.get("/survey/:id", function (req, res) {
@@ -32,8 +42,8 @@ module.exports = function (app) {
   });
 
   //Search History
-  app.get("/history", function(req, res){
-    db.Survey.findAll({}).then(function(surveys){
+  app.get("/history", function (req, res) {
+    db.Survey.findAll({}).then(function (surveys) {
       res.render("history", {
         msg: "FetPinder",
         surveys: surveys
