@@ -75,21 +75,39 @@ h3 {
 }
 
 .pawBackground img{
-margin:0 auto;
-width: 480px;
+position:relative;
+width:100%;
+max-width:480px;
+height:100%;
 }
 
 .pawBackground{
-
-margin: 0 auto;
-
-/* left:27%; */
-width: 80%;
+  z-index:9;
+  /* margin: 0 auto; */
+  position: absolute;
+  width: 38%;
+  left: 31%;
+  height: 100%;
+  border: 1px solid blueviolet;
 }
 
 #pawPrintImage{
-width: 480px;
   margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid blueviolet;
+}
+
+#pawPrintImage .img{
+  position:absolute;
+  bottom:90%;
+  z-index: 5;
+  max-width: 480px;
+  max-height:480px;
+  height:auto;
+  /* margin: 0 auto; */
+  
 }
 
 .pawText{
@@ -108,11 +126,11 @@ width: 480px;
 
 #paw1{
   position: absolute;
-  top:28%;
-  right: 85%;
+  top:26%;
+  right: 75%;
   border:1px solid blueviolet;
-  width: 15%;
-  height: 18%;
+  width: 25%;
+  height: 17%;
 }
 
 #paw1TextPosition{
@@ -123,11 +141,11 @@ width: 480px;
 
 #paw2{
   position: absolute;
-  top:9%;
-  right: 69%;
+  top:7%;
+  right: 48%;
   border:1px solid blueviolet;
-  width: 15%;
-  height: 25%;
+  width: 26%;
+  height: 20%;
 }
 
 #paw2TextPosition{
@@ -138,11 +156,11 @@ width: 480px;
 
 #paw3{
   position: absolute;
-  top:15%;
-  right: 51%;
+  top:12%;
+  right: 17%;
   border:1px solid blueviolet;
-  width: 14%;
-  height: 22%;
+  width: 25%;
+  height: 20%;
 }
 
 #paw3TextPosition{
@@ -153,11 +171,11 @@ width: 480px;
 
 #paw4{
   position: absolute;
-  top:39%;
-  right: 40%;
+  top:33%;
+  right: 0%;
   border:1px solid blueviolet;
-  width: 16%;
-  height: 20%;
+  width: 25%;
+  height: 18%;
 }
 
 #paw4TextPosition{
@@ -168,11 +186,11 @@ width: 480px;
 
 #paw5{
   position: absolute;
-  top:48%;
-  right:57%;
+  top:42%;
+  right:28%;
   border:1px solid blueviolet;
-  width: 30%;
-  height: 35%;
+  width: 50%;
+  height: 30%;
 }
 
 #paw5TextPosition{
@@ -183,10 +201,14 @@ width: 480px;
 }
 
 #pawGroup{
+  z-index:9;
+  /* margin: 0 auto; */
   position: absolute;
-  width: 500px;
-left: 24%;
+  width: 100%;
+  top:10%;
+  left: 0%;
   height: 100%;
+  border: 1px solid blueviolet;
 }
 
 /* Mobile Paw Styling */
