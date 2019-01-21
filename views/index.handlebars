@@ -21,7 +21,7 @@
             </a>
             <div class="col-md-10">
                 <h3 id="signIn">
-                    {{#if user.status}}
+                    {{#if user.active}}
                     Hello {{user.firstname}} {{user.lastname}}
                     {{else}}
                     <a href="/signin">Sign In</a>
