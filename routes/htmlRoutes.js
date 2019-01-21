@@ -52,6 +52,18 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/searchall", function(req, res){
+    res.render("searchall", {
+      msg: "Search History"
+    });
+  });
+
+  app.get("/displayall", function(req, res){
+    res.render("displayall", {
+      msg: "Fill out breed and location"
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
