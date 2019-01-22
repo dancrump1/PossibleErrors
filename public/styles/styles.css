@@ -37,9 +37,6 @@ h3{
  
 }
 
-h3 {
-  color:white;
-}
 
 .navbar {
   background-color:#56ad90;
@@ -313,25 +310,31 @@ pawPrintSignUpUrl{
 /*Survey Styling*/
 
 .text{
+  font-weight: bold;
   color:black;
 }
 .survey-question-one{
+  font-weight: bold;
   color: black;
 }
 
 .survey-question-two{
+  font-weight: bold;
   color:black
 }
 
 .survey-question-three{
+  font-weight: bold;
   color:black
 }
 
 .survey-question-four{
+  font-weight: bold;
   color: black
 }
 
 .survey-question-five{
+  font-weight: bold;
   color:black
 }
 .petcard{
