@@ -176,7 +176,7 @@
 
                 for (let i = 0; i < petFinderData.length; i++) {
                     if (Array.isArray(petFinderData[i].breeds.breed)) {
-                        breed = petFinderData[i].breeds.breed[0].$t;
+                        breed = `Mix of: ` + petFinderData[i].breeds.breed[0].$t + `and` + petFinderData[i].breeds.breed[1].$t;
                     }
                     else {
                         breed = petFinderData[i].breeds.breed.$t;
