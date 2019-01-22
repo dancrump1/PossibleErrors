@@ -15,11 +15,11 @@
 
 <body>
     <div class="navbar">
-        <div class="container" id="navContainer">
+        <div class="container">
             <a href="/">
                 <h1 id="fetPinder">FetPinder</h1>
             </a>
-            <div class="col-md-10">
+            <div class="container">
                 <h3 id="signIn">
                     {{#if user.active}}
                     Hello {{user.firstname}} {{user.lastname}}
@@ -27,83 +27,51 @@
                     <a href="/signin">Sign In</a>
                     {{/if}}
                 </h3>
-            </div>
-            <div class="cold-md-2">
+           
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
                     <img src="/assets/pawprint.png" id="paw">
                 </a>
             </div>
-
         </div>
     </div>
 
     <div class="container" id="mainContainer">
-        <div class="mobilePawContainer">
-            <div class="mobileBackground">
-                <div id="pawPrintSignUp">
-                    <img src="/assets/pawprint.svg">
-                    <div id="pawPrintSignUpUrl">
-                        <h1 id="pawTextMobile1" style="font-size:6vw;">Sign Up / Sign In</h1>
-                    </div>
-                </div>
-
-                <div id="pawPrintSurvey">
-                    <div class="col-sm-6">
-                        <img src="/assets/pawprint.svg">
-                    </div>
-                </div>
-
-                <div class="hoverColor" id="pawPrintSurveyUrl">
-                    <h1 class="hoverColor" style="font-size:6vw;">Find Your Pet!</h1>
-
-                </div>
-                <div id="pawPrintDisplay">
-                    <img src="/assets/pawprint.svg">
-                    <h1 class="hover" style="font-size:6vw;">Display All Pets</h1>
-                </div>
-                <div id="pawPrintSearch">
-                    <img src="/assets/pawprint.svg">
-                    <h1 class="hover" style="font-size:6vw;">Search Pets</h1>
-                </div>
-                <div id="pawPrintHistory">
-                    <img src="/assets/pawprint.svg">
-                    <h1 class="hover" style="font-size:6vw;">Search History</h1>
-                </div>
-            </div>
-        </div>
-
+       
         <div class="pawBackground">
-            {{!-- <div id="pawGroup"> --}}
-                <div id="paw1">
-                    <div class="pawTextDiv" id="paw1TextPosition">
-                        <h1 class="pawText hoverColor">Sign Up</h1>
-                    </div>
-                </div>
-                <div id="paw2">
-                    <div class="pawTextDiv" id="paw2TextPosition">
-                        <h1 class="pawText hoverColor">Search All Pets</h1>
-                    </div>
-                </div>
-                <div id="paw3">
-                    <div class="pawTextDiv" id="paw3TextPosition">
-                        <h1 class="pawText hoverColor">Display All Pets</h1>
-                    </div>
-                </div>
-                <div id="paw4">
-                    <div class="pawTextDiv" id="paw4TextPosition">
-                        <h1 class="pawText hoverColor">Search History</h1>
-                    </div>
-                </div>
-                <div id="paw5">
-                    <div class="pawTextDiv" id="paw5TextPosition">
-                        <h1 class="pawText hoverColor" id="bigPawText">Find Your Dog!</h1>
-                    </div>
-                </div>
-                {{!--
-            </div> --}}
             <div id="pawPrintImage">
                 <img src="/assets/pawprint.svg">
+
+                <div id="pawGroup">
+                    <div id="paw1">
+                        <div class="pawTextDiv" id="paw1TextPosition">
+                            <h1 class="pawText hoverColor">Sign Up</h1>
+                        </div>
+                    </div>
+                    <div id="paw2">
+                        <div class="pawTextDiv" id="paw2TextPosition">
+                            <h1 class="pawText hoverColor">Search All Pets</h1>
+                        </div>
+                    </div>
+                    <div id="paw3">
+                        <div class="pawTextDiv" id="paw3TextPosition">
+                            <h1 class="pawText hoverColor">Display All Pets</h1>
+                        </div>
+                    </div>
+                    <div id="paw4">
+                        <div class="pawTextDiv" id="paw4TextPosition">
+                            <h1 class="pawText hoverColor">Search History</h1>
+                        </div>
+                    </div>
+                    <div id="paw5">
+                        <div class="pawTextDiv" id="paw5TextPosition">
+                            <h1 class="pawText hoverColor" id="bigPawText">Find Your Dog!</h1>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
 
 
         </div>
